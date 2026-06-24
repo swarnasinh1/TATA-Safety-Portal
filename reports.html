@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Reports - TATA Safety Portal</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        header{
+            background:#005BAC;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1200px;
+            margin:30px auto;
+        }
+
+        h2{
+            color:#005BAC;
+            margin-bottom:20px;
+        }
+
+        .form-group{
+            margin-bottom:20px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        .form-group select,
+        .form-group input{
+            width:250px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:center;
+        }
+
+        th{
+            background:#005BAC;
+            color:white;
+        }
+
+        tr:nth-child(even){
+            background:#f9f9f9;
+        }
+
+        .btn{
+            display:inline-block;
+            margin-top:20px;
+            padding:10px 20px;
+            background:#005BAC;
+            color:white;
+            text-decoration:none;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TATA Safety Portal</h1>
+</header>
+
+<div class="container">
+
+    <h2>Submitted Incident Reports</h2>
+
+    <div class="form-group">
+        <label>Select Plant</label>
+        <select>
+            <option>All Plants</option>
+            <option>Jamshedpur</option>
+            <option>Kalinganagar</option>
+            <option>Meramandali</option>
+            <option>Gamharia</option>
+            <option>Pune</option>
+        </select>
+    </div>
+
+    <div class="form-group">
+        <label>Search Report ID</label>
+        <input
+            type="text"
+            id="searchInput"
+            placeholder="Search Report ID"
+            onkeyup="searchReports()">
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Report ID</th>
+                <th>Plant</th>
+                <th>Date</th>
+                <th>Location</th>
+                <th>Incident Type</th>
+                <th>Severity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+
+        <tbody id="reportsTableBody">
+            <!-- Reports will be loaded automatically -->
+        </tbody>
+    </table>
+
+    <a href="dashboard.html" class="btn">
+        Back to Dashboard
+    </a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

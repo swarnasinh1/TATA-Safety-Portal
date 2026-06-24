@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Report Incident - TATA Safety Portal</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        header{
+            background:#005BAC;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .container{
+            max-width:800px;
+            margin:30px auto;
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2{
+            color:#005BAC;
+            margin-bottom:20px;
+        }
+
+        .form-group{
+            margin-bottom:15px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input,
+        select,
+        textarea{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        textarea{
+            resize:vertical;
+        }
+
+        button{
+            width:100%;
+            background:#005BAC;
+            color:white;
+            padding:12px;
+            border:none;
+            border-radius:5px;
+            font-size:16px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            opacity:0.9;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TATA Safety Portal</h1>
+</header>
+
+<div class="container">
+
+    <h2>Safety Incident Report Form</h2>
+
+    <form action="success.html">
+
+        <div class="form-group">
+            <label>Employee Name</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Employee ID</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Department</label>
+            <input type="text" required>
+        </div>
+
+        <div class="form-group">
+            <label>Date of Incident</label>
+            <input type="date" required>
+        </div>
+
+        <div class="form-group">
+            <label>Time of Incident</label>
+            <input type="time" required>
+        </div>
+
+       <div class="form-group">
+    <label>TATA Plant Location</label>
+    <select required>
+        <option value="">Select Plant</option>
+        <option>Tata Steel Jamshedpur</option>
+        <option>Tata Steel Kalinganagar</option>
+        <option>Tata Steel Meramandali</option>
+        <option>Tata Steel Gamharia</option>
+        <option>Tata Steel Sahibabad</option>
+        <option>Tata Steel Pantnagar</option>
+        <option>Tata Steel Pune</option>
+    </select>
+</div>
+
+<div class="form-group">
+    <label>Specific Incident Area</label>
+    <input type="text" placeholder="e.g., Blast Furnace 2, Rolling Mill, Warehouse" required>
+</div>
+
+        <div class="form-group">
+            <label>Incident Type</label>
+            <select required>
+                <option value="">Select Type</option>
+                <option>Near Miss</option>
+                <option>Minor Injury</option>
+                <option>Major Injury</option>
+                <option>Equipment Damage</option>
+                <option>Fire Hazard</option>
+                <option>Unsafe Condition</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Severity Level</label>
+            <select required>
+                <option value="">Select Severity</option>
+                <option>Low</option>
+                <option>Medium</option>
+                <option>High</option>
+                <option>Critical</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Incident Description</label>
+            <textarea rows="5" required></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Upload Evidence (Photo/Document)</label>
+            <input type="file">
+        </div>
+
+        <button type="submit">Submit Report</button>
+
+    </form>
+
+</div>
+<form onsubmit="saveReport(event)"></form>
+<script src="script.js"></script>
+</body>
+</html>

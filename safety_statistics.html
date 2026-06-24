@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Safety Statistics - TATA Safety Portal</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f4f4f4;
+        }
+
+        header{
+            background:#005BAC;
+            color:white;
+            text-align:center;
+            padding:20px;
+        }
+
+        .container{
+            width:90%;
+            max-width:1000px;
+            margin:30px auto;
+        }
+
+        h2{
+            text-align:center;
+            color:#005BAC;
+            margin-bottom:25px;
+        }
+
+        .form-group{
+            margin-bottom:25px;
+        }
+
+        .form-group label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        .form-group select{
+            width:250px;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        .stats-grid{
+            display:grid;
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+            gap:20px;
+        }
+
+        .card{
+            background:white;
+            padding:25px;
+            border-radius:10px;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+            text-align:center;
+        }
+
+        .card h3{
+            color:#555;
+            margin-bottom:10px;
+        }
+
+        .number{
+            font-size:36px;
+            font-weight:bold;
+            color:#005BAC;
+        }
+
+        table{
+            width:100%;
+            margin-top:30px;
+            border-collapse:collapse;
+            background:white;
+            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        th, td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:center;
+        }
+
+        th{
+            background:#005BAC;
+            color:white;
+        }
+
+        .btn{
+            display:block;
+            width:220px;
+            margin:30px auto;
+            text-align:center;
+            background:#005BAC;
+            color:white;
+            text-decoration:none;
+            padding:12px;
+            border-radius:5px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>TATA Safety Portal</h1>
+</header>
+
+<div class="container">
+
+    <h2>Safety Statistics Dashboard</h2>
+
+    <div class="form-group">
+        <label>Select Plant</label>
+        <select>
+            <option>All Plants</option>
+            <option>Jamshedpur</option>
+            <option>Kalinganagar</option>
+            <option>Meramandali</option>
+            <option>Gamharia</option>
+            <option>Pune</option>
+        </select>
+    </div>
+<div class="number" id="totalReports">0</div>
+
+<div class="number" id="openCases">0</div>
+
+<div class="number" id="closedCases">0</div>
+    <div class="stats-grid">
+
+        <div class="card">
+            <h3>Total Reports</h3>
+            <div class="number">45</div>
+        </div>
+
+        <div class="card">
+            <h3>Open Cases</h3>
+            <div class="number">8</div>
+        </div>
+
+        <div class="card">
+            <h3>In Progress</h3>
+            <div class="number">12</div>
+        </div>
+
+        <div class="card">
+            <h3>Closed Cases</h3>
+            <div class="number">25</div>
+        </div>
+
+    </div>
+
+    <table>
+        <tr>
+            <th>Incident Type</th>
+            <th>Count</th>
+        </tr>
+
+        <tr>
+            <td>Near Miss</td>
+            <td>15</td>
+        </tr>
+
+        <tr>
+            <td>Minor Injury</td>
+            <td>10</td>
+        </tr>
+
+        <tr>
+            <td>Equipment Damage</td>
+            <td>8</td>
+        </tr>
+
+        <tr>
+            <td>Unsafe Condition</td>
+            <td>12</td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Plant Location</th>
+            <th>Total Reports</th>
+        </tr>
+
+        <tr>
+            <td>Jamshedpur</td>
+            <td>18</td>
+        </tr>
+
+        <tr>
+            <td>Kalinganagar</td>
+            <td>12</td>
+        </tr>
+
+        <tr>
+            <td>Meramandali</td>
+            <td>8</td>
+        </tr>
+
+        <tr>
+            <td>Gamharia</td>
+            <td>7</td>
+        </tr>
+
+        <tr>
+            <td>Pune</td>
+            <td>5</td>
+        </tr>
+    </table>
+
+    <a href="dashboard.html" class="btn">
+        Back to Dashboard
+    </a>
+
+</div>
+<script src="script.js"></script>
+</body>
+</html>

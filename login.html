@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TATA Safety Portal - Login</title>
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            height:100vh;
+            background:#f4f4f4;
+        }
+
+        .login-container{
+            background:white;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 4px 10px rgba(0,0,0,0.1);
+            width:350px;
+        }
+
+        h2{
+            text-align:center;
+            color:#005BAC;
+            margin-bottom:20px;
+        }
+
+        .input-group{
+            margin-bottom:15px;
+        }
+
+        label{
+            display:block;
+            margin-bottom:5px;
+            font-weight:bold;
+        }
+
+        input{
+            width:100%;
+            padding:10px;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#005BAC;
+            color:white;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            font-size:16px;
+        }
+
+        button:hover{
+            opacity:0.9;
+        }
+
+        .footer-text{
+            text-align:center;
+            margin-top:15px;
+            font-size:14px;
+            color:#666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>TATA Safety Portal</h2>
+
+        <form action="dashboard.html">
+            <div class="input-group">
+                <label for="employeeId">Employee ID</label>
+                <input type="text" id="employeeId" required>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" required>
+            </div>
+
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="footer-text">
+            Authorized Personnel Only
+        </div>
+    </div>
+<script src="script.js"></script>
+</body>
+</html>
