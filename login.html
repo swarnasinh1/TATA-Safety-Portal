@@ -10,7 +10,7 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:Arial, sans-serif;
+            font-family:Arial,sans-serif;
         }
 
         body{
@@ -25,8 +25,8 @@
             background:white;
             padding:30px;
             border-radius:10px;
+            width:360px;
             box-shadow:0 4px 10px rgba(0,0,0,0.1);
-            width:350px;
         }
 
         h2{
@@ -64,40 +64,78 @@
         }
 
         button:hover{
-            opacity:0.9;
+            opacity:.9;
         }
 
-        .footer-text{
+        .register-link{
             text-align:center;
             margin-top:15px;
-            font-size:14px;
-            color:#666;
+        }
+
+        .register-link a{
+            color:#005BAC;
+            text-decoration:none;
+        }
+
+        .register-link a:hover{
+            text-decoration:underline;
+        }
+
+        .error{
+            color:red;
+            text-align:center;
+            margin-bottom:15px;
+            font-weight:bold;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="login-container">
-        <h2>TATA Safety Portal</h2>
+<div class="login-container">
 
-        <form action="dashboard.html">
-            <div class="input-group">
-                <label for="employeeId">Employee ID</label>
-                <input type="text" id="employeeId" required>
-            </div>
+    <h2>TATA Safety Portal</h2>
 
-            <div class="input-group">
-                <label for="password">Password</label>
-                <input type="password" id="password" required>
-            </div>
-
-            <button type="submit">Login</button>
-        </form>
-
-        <div class="footer-text">
-            Authorized Personnel Only
-        </div>
+    {% if error %}
+    <div class="error">
+        {{ error }}
     </div>
-<script src="script.js"></script>
+    {% endif %}
+
+    <form action="/login" method="POST">
+
+        <div class="input-group">
+            <label>Employee ID</label>
+            <input
+                type="text"
+                name="employeeid"
+                id="employeeId"
+                placeholder="Enter Employee ID"
+                required>
+        </div>
+
+        <div class="input-group">
+            <label>Password</label>
+            <input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Enter Password"
+                required>
+        </div>
+
+        <button type="submit">Login</button>
+
+    </form>
+
+    <div class="register-link">
+        Don't have an account?
+        <a href="/register">Register</a>
+    </div>
+
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
