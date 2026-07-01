@@ -10,7 +10,7 @@
             margin:0;
             padding:0;
             box-sizing:border-box;
-            font-family:Arial, sans-serif;
+            font-family:Arial,sans-serif;
         }
 
         body{
@@ -37,7 +37,7 @@
 
         .cards{
             display:grid;
-            grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+            grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
             gap:20px;
         }
 
@@ -45,7 +45,7 @@
             background:white;
             padding:25px;
             border-radius:10px;
-            box-shadow:0 2px 8px rgba(0,0,0,0.1);
+            box-shadow:0 2px 8px rgba(0,0,0,.1);
             text-align:center;
         }
 
@@ -73,7 +73,7 @@
         }
 
         .btn:hover{
-            opacity:0.9;
+            opacity:.9;
         }
 
         footer{
@@ -85,60 +85,63 @@
         }
     </style>
 </head>
+
 <body>
 
-    <header>
-        <h1>TATA Safety Portal</h1>
-    </header>
+<header>
+    <h1>TATA Safety Portal</h1>
+</header>
 
-    <div class="container">
+<div class="container">
 
-        <div class="welcome">
-            <h2>Welcome to the Dashboard</h2>
-            <p>Manage workplace safety incidents and reports.</p>
+    <div class="welcome">
+        <h2>Welcome, {{ fullname }}</h2>
+        <p>Manage workplace safety incidents and reports.</p>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <h3>Report Incident</h3>
+            <p>Submit a new safety incident report.</p>
+            <a href="/report">
+                <button class="btn">Open</button>
+            </a>
         </div>
 
-        <div class="cards">
+        <div class="card">
+            <h3>View Reports</h3>
+            <p>Check previously submitted reports.</p>
+            <a href="/reports">
+                <button class="btn">Open</button>
+            </a>
+        </div>
 
-            <div class="card">
-                <h3>Report Incident</h3>
-                <p>Submit a new safety incident report.</p>
-                <a href="report.html">
-                    <button class="btn">Open</button>
-                </a>
-            </div>
+        <div class="card">
+            <h3>Safety Statistics</h3>
+            <p>View safety performance and records.</p>
+            <a href="/statistics">
+                <button class="btn">Open</button>
+            </a>
+        </div>
 
-            <div class="card">
-                <h3>View Reports</h3>
-                <p>Check previously submitted reports.</p>
-                <a href="reports.html">
-                    <button class="btn">Open</button>
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Safety Statistics</h3>
-                <p>View safety performance and records.</p>
-                <a href="safety_statistics.html">
-                    <button class="btn">Open</button>
-                </a>
-            </div>
-
-            <div class="card">
-                <h3>Logout</h3>
-                <p>Exit the portal securely.</p>
-                <a href="index.html">
-                    <button class="btn">Logout</button>
-                </a>
-            </div>
-
+        <div class="card">
+            <h3>Logout</h3>
+            <p>Exit the portal securely.</p>
+            <a href="/logout">
+                <button class="btn">Logout</button>
+            </a>
         </div>
 
     </div>
 
-    <footer>
-        <p>© 2026 TATA Safety Portal</p>
-    </footer>
-<script src="script.js"></script>
+</div>
+
+<footer>
+    <p>© 2026 TATA Safety Portal</p>
+</footer>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
