@@ -1,153 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TATA Safety Portal - Register</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TATA Safety Portal - Register</title>
 
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
+<style>
 
-        body {
-            background-color: #f4f4f4;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
 
-        .register-container {
-            background: white;
-            padding: 30px;
-            border-radius: 10px;
-            width: 400px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
+body{
+background:#f4f4f4;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+}
 
-        h2 {
-            text-align: center;
-            color: #005BAC;
-            margin-bottom: 20px;
-        }
+.register-container{
+background:white;
+padding:30px;
+border-radius:10px;
+width:400px;
+box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
 
-        .input-group {
-            margin-bottom: 15px;
-        }
+h2{
+text-align:center;
+color:#005BAC;
+margin-bottom:20px;
+}
 
-        label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
-        }
+.error{
+color:red;
+text-align:center;
+margin-bottom:15px;
+font-weight:bold;
+}
 
-        input, select {
-            width: 100%;
-            padding: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
+.input-group{
+margin-bottom:15px;
+}
 
-        button {
-            width: 100%;
-            padding: 12px;
-            background-color: #005BAC;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 16px;
-            cursor: pointer;
-        }
+label{
+display:block;
+margin-bottom:5px;
+font-weight:bold;
+}
 
-        button:hover {
-            opacity: 0.9;
-        }
+input,
+select{
+width:100%;
+padding:10px;
+border:1px solid #ccc;
+border-radius:5px;
+}
 
-        .login-link {
-            text-align: center;
-            margin-top: 15px;
-        }
+button{
+width:100%;
+padding:12px;
+background:#005BAC;
+color:white;
+border:none;
+border-radius:5px;
+cursor:pointer;
+font-size:16px;
+}
 
-        .login-link a {
-            color: #005BAC;
-            text-decoration: none;
-        }
+.login-link{
+margin-top:15px;
+text-align:center;
+}
 
-        .login-link a:hover {
-            text-decoration: underline;
-        }
-    </style>
+.login-link a{
+text-decoration:none;
+color:#005BAC;
+}
+
+</style>
+
 </head>
+
 <body>
 
-    <div class="register-container">
-        <h2>TATA Safety Portal</h2>
+<div class="register-container">
 
-        <form action="dashboard.html">
+<h2>TATA Safety Portal</h2>
 
-            <div class="input-group">
-                <label for="fullname">Full Name</label>
-                <input type="text" id="fullname" required>
-            </div>
+{% if error %}
+<div class="error">
+{{ error }}
+</div>
+{% endif %}
 
-            <div class="input-group">
-                <label for="employeeid">Employee ID</label>
-                <input type="text" id="employeeid" required>
-            </div>
+<form action="/register" method="POST" onsubmit="return validateForm()">
 
-            <div class="input-group">
-                <label for="department">Department</label>
-                <select id="department" required>
-                    <option value="">Select Department</option>
-                    <option>Production</option>
-                    <option>Maintenance</option>
-                    <option>Safety</option>
-                    <option>Human Resources</option>
-                    <option>Information Technology</option>
-                </select>
-            </div>
+<div class="input-group">
+<label>Full Name</label>
+<input type="text" name="fullname" required>
+</div>
 
-            <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" required>
-            </div>
+<div class="input-group">
+<label>Employee ID</label>
+<input type="text" name="employeeid" required>
+</div>
 
-            <div class="input-group">
-                <label for="password">Create Password</label>
-                <input type="password" id="password" required>
-            </div>
+<div class="input-group">
+<label>Department</label>
 
-            <div class="input-group">
-                <label for="confirmPassword">Confirm Password</label>
-                <input type="password" id="confirmPassword" required>
-            </div>
+<select name="department" required>
 
-            <button type="submit">Register</button>
+<option value="">Select Department</option>
 
-        </form>
+<option>Production</option>
+<option>Maintenance</option>
+<option>Safety</option>
+<option>Human Resources</option>
+<option>Information Technology</option>
 
-        <div class="login-link">
-            Already have an account?
-            <a href="login.html">Login</a>
-        </div>
-    </div>
-    <script>
-function validateForm() {
-    let password = document.getElementById("password").value;
-    let confirmPassword = document.getElementById("confirmPassword").value;
+</select>
 
-    if(password !== confirmPassword) {
-        alert("Passwords do not match!");
-        return false;
-    }
+</div>
 
-    return true;
+<div class="input-group">
+<label>Email</label>
+<input type="email" name="email" required>
+</div>
+
+<div class="input-group">
+<label>Password</label>
+<input type="password" id="password" name="password" required>
+</div>
+
+<div class="input-group">
+<label>Confirm Password</label>
+<input type="password" id="confirmPassword" required>
+</div>
+
+<button type="submit">
+Register
+</button>
+
+</form>
+
+<div class="login-link">
+
+Already have an account?
+
+<a href="/login">Login</a>
+
+</div>
+
+</div>
+
+<script>
+
+function validateForm(){
+
+const password=document.getElementById("password").value;
+const confirm=document.getElementById("confirmPassword").value;
+
+if(password!==confirm){
+
+alert("Passwords do not match.");
+
+return false;
+
 }
+
+return true;
+
+}
+
 </script>
-<script src="script.js"></script>
+
 </body>
 </html>
